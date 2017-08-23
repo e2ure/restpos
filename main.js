@@ -16,7 +16,7 @@ var methodOverride = require('method-override');
 var errorhandler = require('errorhandler');
 
 //all environments
-app.set('port', process.env.PORT || 3000);
+app.set('port', process.env.PORT || 3001);
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
 //app.use(express.favicon());
@@ -43,11 +43,9 @@ app.use(
 );//route index, hello world
 app.get('/', routes.index);//route customer listv
 app.get('/clientes', clientes.list);//route add customer, get n post
-app.get('/clientes/add', clientes.add);
-app.post('/clientes/add', clientes.save);//route delete customer
-//app.get('/clientes/delete/:id', clientes.delete_customer);//edit customer route , get n post
-app.get('/clientes/edit/:id', clientes.edit); 
-app.post('/clientes/edit/:id',clientes.save_edit);
+app.get('/clientes/consultar/:id', clientes.edit);
+app.post('/clientes/redimir/',clientes.redimir);
+app.post('/clientes/acumular/',clientes.acumular);
 //app.use(app.router);
 http.createServer(app).listen(app.get('port'), function(){
   console.log('Express server listening on port ' + app.get('port'));
