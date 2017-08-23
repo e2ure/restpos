@@ -41,7 +41,7 @@ app.use(
         database: "heroku_b7f13a831b669f3"
     },'request')
 );//route index, hello world
-//app.get('/', routes.index);//route customer listv
+app.get('/', routes.index);//route customer listv
 app.get('/clientes', clientes.list);//route add customer, get n post
 app.get('/clientes/add', clientes.add);
 app.post('/clientes/add', clientes.save);//route delete customer
