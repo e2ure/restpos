@@ -1,7 +1,18 @@
-/* 
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+/*
+ * GET clientes listing.
  */
-
-
+exports.index = function(req, res){
+  req.getConnection(function(err,connection){
+       
+     connection.query('SELECT nombre,apellido1, saldo_cashback FROM clientes',function(err,rows)     {
+            
+        if(err)
+           console.log("Error Selecting : %s ",err );
+     
+            res.json(rows);
+                           
+         });
+       
+    });
+  
+};
